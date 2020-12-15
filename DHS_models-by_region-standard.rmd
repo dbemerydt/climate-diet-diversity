@@ -1,0 +1,146 @@
+---
+title: "DHS Diet Diversity - By Region"
+author: "Ben Emery"
+output: html_document
+---
+
+# random effects mixed-model
+
+```{r results='hide', message=FALSE, warning=FALSE}
+library('lmerTest')
+library('memisc')
+```
+
+## West Africa
+
+```{r results='hide', message=FALSE, warning=FALSE}
+df = read.csv('DHS_region-W_Africa.csv')
+
+model = lmer(IDDS_FAO08 ~ tc_clu_20 + dis_urb + dist_road + pop_den + timewater + tlu + agemonths + educationyearshead + improvedtoilet + improvedwater_who + sexhead + wealthindex + chirts_lt_avg + chirps_30_yr_avg + chirts_prev_yr_z + chirps_prev_yr_z + chirts_cur_yr_z + chirps_cur_yr_z + (1 | countrycode) + (1 | cluster_unique), df)
+```
+### model coefficients
+```{r}
+options(width = 200)
+summary(model)
+write.csv(summary(model)$coefficients,"DHS_region-W_Africa-model.csv")
+```
+### model anova
+```{r}
+options(width = 200)
+anova(model)
+```
+
+## SouthEast Africa
+
+```{r results='hide', message=FALSE, warning=FALSE}
+df = read.csv('DHS_region-SE_Africa.csv')
+
+model = lmer(IDDS_FAO08 ~ tc_clu_20 + dis_urb + dist_road + pop_den + timewater + tlu + agemonths + educationyearshead + improvedtoilet + improvedwater_who + sexhead + wealthindex + chirts_lt_avg + chirps_30_yr_avg + chirts_prev_yr_z + chirps_prev_yr_z + chirts_cur_yr_z + chirps_cur_yr_z + (1 | countrycode) + (1 | cluster_unique), df)
+```
+### model coefficients
+```{r}
+options(width = 200)
+summary(model)
+write.csv(summary(model)$coefficients,"DHS_region-SE_Africa-model.csv")
+```
+### model anova
+```{r}
+options(width = 200)
+anova(model)
+```
+
+## Asia
+
+```{r results='hide', message=FALSE, warning=FALSE}
+df = read.csv('DHS_region-Asia.csv')
+
+model = lmer(IDDS_FAO08 ~ tc_clu_20 + dis_urb + dist_road + pop_den + timewater + tlu + agemonths + educationyearshead + improvedtoilet + improvedwater_who + sexhead + wealthindex + chirts_lt_avg + chirps_30_yr_avg + chirts_prev_yr_z + chirps_prev_yr_z + chirts_cur_yr_z + chirps_cur_yr_z + (1 | countrycode) + (1 | cluster_unique), df)
+```
+### model coefficients
+```{r}
+options(width = 200)
+summary(model)
+write.csv(summary(model)$coefficients,"DHS_region-Asia-model.csv")
+```
+### model anova
+```{r}
+options(width = 200)
+anova(model)
+```
+
+## North Africa / Middle East
+
+```{r results='hide', message=FALSE, warning=FALSE}
+df = read.csv('DHS_region-NoAf_ME.csv')
+
+model = lmer(IDDS_FAO08 ~ tc_clu_20 + dis_urb + dist_road + pop_den + timewater + tlu + agemonths + educationyearshead + improvedtoilet + improvedwater_who + sexhead + wealthindex + chirts_lt_avg + chirps_30_yr_avg + chirts_prev_yr_z + chirps_prev_yr_z + chirts_cur_yr_z + chirps_cur_yr_z + (1 | cluster_unique), df)
+```
+### model coefficients
+```{r}
+options(width = 200)
+summary(model)
+write.csv(summary(model)$coefficients,"DHS_region-NoAf_ME-model.csv")
+```
+### model anova
+```{r}
+options(width = 200)
+anova(model)
+```
+
+## South America
+
+```{r results='hide', message=FALSE, warning=FALSE}
+df = read.csv('DHS_region-S_Amer.csv')
+
+model = lmer(IDDS_FAO08 ~ tc_clu_20 + dis_urb + dist_road + pop_den + timewater + tlu + agemonths + educationyearshead + improvedtoilet + improvedwater_who + sexhead + wealthindex + chirts_lt_avg + chirps_30_yr_avg + chirts_prev_yr_z + chirps_prev_yr_z + chirts_cur_yr_z + chirps_cur_yr_z + (1 | countrycode) + (1 | cluster_unique), df)
+```
+### model coefficients
+```{r}
+options(width = 200)
+summary(model)
+write.csv(summary(model)$coefficients,"DHS_region-S_Amer-model.csv")
+```
+### model anova
+```{r}
+options(width = 200)
+anova(model)
+```
+
+## Central America
+
+```{r results='hide', message=FALSE, warning=FALSE}
+df = read.csv('DHS_region-Cen_Am.csv')
+
+model = lmer(IDDS_FAO08 ~ tc_clu_20 + dis_urb + dist_road + pop_den + timewater + tlu + agemonths + educationyearshead + improvedtoilet + improvedwater_who + sexhead + wealthindex + chirts_lt_avg + chirps_30_yr_avg + chirts_prev_yr_z + chirps_prev_yr_z + chirts_cur_yr_z + chirps_cur_yr_z + (1 | countrycode) + (1 | cluster_unique), df)
+```
+### model coefficients
+```{r}
+options(width = 200)
+summary(model)
+write.csv(summary(model)$coefficients,"DHS_region-Cen_Am-model.csv")
+```
+### model anova
+```{r}
+options(width = 200)
+anova(model)
+```
+
+
+## All Regions
+
+```{r results='hide', message=FALSE, warning=FALSE}
+df = read.csv('DHS_region-all.csv')
+
+model = lmer(IDDS_FAO08 ~ tc_clu_20 + dis_urb + dist_road + pop_den + timewater + tlu + agemonths + educationyearshead + improvedtoilet + improvedwater_who + sexhead + wealthindex + chirts_lt_avg + chirps_30_yr_avg + chirts_prev_yr_z + chirps_prev_yr_z + chirts_cur_yr_z + chirps_cur_yr_z + (1 | countrycode) + (1 | cluster_unique), df)
+```
+### model coefficients
+```{r}
+options(width = 200)
+summary(model)
+write.csv(summary(model)$coefficients,"DHS_region-all-model.csv")
+```
+### model anova
+```{r}
+options(width = 200)
+anova(model)
+```
